@@ -10,6 +10,9 @@ importers:
 
   packages/esoteric-wrappers:
     dependencies:
+      lunar-javascript:
+        specifier: ^1.7.7
+        version: 1.7.7
       zod:
         specifier: ^4.3.6
         version: 4.3.6
@@ -445,6 +448,9 @@ packages:
     resolution: {integrity: sha512-5xoDfX+fL7faATnagmWPpbFtwh/R77WmMMqqHGS65C3vvB0YHrgF+B1YmZ3441tMj5n63k0212XNoJwzlhffQw==}
     engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
     os: [darwin]
+
+  lunar-javascript@1.7.7:
+    resolution: {integrity: sha512-u/KYiwPIBo/0bT+WWfU7qO1d+aqeB90Tuy4ErXenr2Gam0QcWeezUvtiOIyXR7HbVnW2I1DKfU0NBvzMZhbVQw==}
 
   magic-string@0.30.21:
     resolution: {integrity: sha512-vd2F4YUyEXKGcLHoq+TEyCjxueSeHnFxyyjNp80yg0XV4vUhnDer/lvvlqM/arB5bXQN5K2/3oinyCRyx8T2CQ==}
@@ -907,6 +913,8 @@ snapshots:
 
   fsevents@2.3.3:
     optional: true
+
+  lunar-javascript@1.7.7: {}
 
   magic-string@0.30.21:
     dependencies:

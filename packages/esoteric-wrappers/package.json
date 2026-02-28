@@ -16,6 +16,7 @@
     "vitest": "^4.0.18"
   },
   "dependencies": {
+    "lunar-javascript": "^1.7.7",
     "zod": "^4.3.6"
   }
 }
