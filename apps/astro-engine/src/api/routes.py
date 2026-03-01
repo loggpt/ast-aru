@@ -1,7 +1,9 @@
+import asyncio
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel, Field
 from datetime import datetime
 from src.core.ephemeris import calculate_ephemeris, AstroResult
+from src.core.jyotish import calculate_jyotish_blueprint, JyotishResult
 
 router = APIRouter()
 
@@ -12,18 +14,32 @@ class AstroRequest(BaseModel):
 
 class AstroResponse(BaseModel):
     status: str
-    data: AstroResult
+    ephemeris: AstroResult
+    vedic: JyotishResult
 
 @router.post("/calculate", response_model=AstroResponse)
 async def calculate_astro(request: AstroRequest):
     try:
-        # Offload the SWISSEPH calculations to the asyncio thread pool
-        result = await calculate_ephemeris(
+        # Offload both SWISSEPH calculations to the asyncio thread pool concurrently
+        ephemeris_task = calculate_ephemeris(
             lat=request.latitude,
             lon=request.longitude,
             timestamp=request.timestamp
         )
         
-        return AstroResponse(status="success", data=result)
+        vedic_task = calculate_jyotish_blueprint(
+            lat=request.latitude,
+            lon=request.longitude,
+            timestamp=request.timestamp
+        )
+        
+        ephemeris_result, vedic_result = await asyncio.gather(ephemeris_task, vedic_task)
+        
+        return AstroResponse(
+            status="success", 
+            ephemeris=ephemeris_result,
+            vedic=vedic_result
+        )
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+

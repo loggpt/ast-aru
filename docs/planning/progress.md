@@ -10,6 +10,8 @@
 - [x] **API Gateway Integration**
 - [x] **Started Python Astro-Engine**
 - [x] **Implement Thread-Pooled Ephemeris**
+- [x] **PyJHora / Vedic Integration (D1, D9, D10, Vimshottari)**
 
 ## Pending
+- [ ] **Docker Compose Unification**
 - [ ] **Python LangGraph Orchestrator bridging**

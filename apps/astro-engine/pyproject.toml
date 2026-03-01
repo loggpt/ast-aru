@@ -8,7 +8,11 @@ dependencies = [
     "fastapi[standard]>=0.134.0",
     "flatlib>=0.2.3",
     "pydantic>=2.12.5",
+    "pyjhora",
     "pyswisseph>=2.8.0.post1",
     "pytest>=9.0.2",
     "uvicorn>=0.41.0",
 ]
+
+[tool.uv.sources]
+pyjhora = { git = "https://github.com/naturalstupid/PyJHora.git" }
