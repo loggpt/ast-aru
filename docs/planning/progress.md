@@ -8,6 +8,7 @@
 - [x] **Tibetan Mewa (Rabjung Cycle)**
 - [x] **Mayan Dreamspell / Tzolkin**
 - [x] **API Gateway Integration**
+- [x] **Started Python Astro-Engine**
 
 ## Pending
 - [ ] **Python LangGraph Orchestrator bridging**
