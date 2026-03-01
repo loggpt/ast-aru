@@ -13,6 +13,9 @@ importers:
       adhan:
         specifier: ^4.4.3
         version: 4.4.3
+      jalaali-js:
+        specifier: ^1.2.8
+        version: 1.2.8
       kosher-zmanim:
         specifier: ^0.9.0
         version: 0.9.0
@@ -23,6 +26,9 @@ importers:
         specifier: ^4.3.6
         version: 4.3.6
     devDependencies:
+      '@types/jalaali-js':
+        specifier: ^1.2.0
+        version: 1.2.0
       ts-node:
         specifier: ^10.9.2
         version: 10.9.2(@types/node@25.3.2)(typescript@5.9.3)
@@ -367,6 +373,9 @@ packages:
   '@types/estree@1.0.8':
     resolution: {integrity: sha512-dWHzHa2WqEXI/O1E9OjrocMTKJl2mSrEolh1Iomrv6U+JuNwaHXsXx9bLu5gG7BUWFIN0skIQJQ/L1rIex4X6w==}
 
+  '@types/jalaali-js@1.2.0':
+    resolution: {integrity: sha512-DRQKjbfFe0/v3siCou9eFzYjDxJItkJpxbU+/CSptvoRqq2/VmTA6y8QvqK/VELKW6xX3qb174nLZlrFV9OT3Q==}
+
   '@types/node@25.3.2':
     resolution: {integrity: sha512-RpV6r/ij22zRRdyBPcxDeKAzH43phWVKEjL2iksqo1Vz3CuBUrgmPpPhALKiRfU7OMCmeeO9vECBMsV0hMTG8Q==}
 
@@ -460,6 +469,9 @@ packages:
     resolution: {integrity: sha512-5xoDfX+fL7faATnagmWPpbFtwh/R77WmMMqqHGS65C3vvB0YHrgF+B1YmZ3441tMj5n63k0212XNoJwzlhffQw==}
     engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
     os: [darwin]
+
+  jalaali-js@1.2.8:
+    resolution: {integrity: sha512-Jl/EwY84JwjW2wsWqeU4pNd22VNQ7EkjI36bDuLw31wH98WQW4fPjD0+mG7cdCK+Y8D6s9R3zLiQ3LaKu6bD8A==}
 
   kosher-zmanim@0.9.0:
     resolution: {integrity: sha512-Ya/QYPNTgOAKDbLla1M7RyzFiwFpjbKq4wGnL62p+AYA7ZPPpnxQ2O3qNsi6zzrphhkx1ymAg66lYNJOzFOodA==}
@@ -829,6 +841,8 @@ snapshots:
 
   '@types/estree@1.0.8': {}
 
+  '@types/jalaali-js@1.2.0': {}
+
   '@types/node@25.3.2':
     dependencies:
       undici-types: 7.18.2
@@ -935,6 +949,8 @@ snapshots:
 
   fsevents@2.3.3:
     optional: true
+
+  jalaali-js@1.2.8: {}
 
   kosher-zmanim@0.9.0:
     dependencies:
