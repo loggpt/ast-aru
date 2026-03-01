@@ -23,14 +23,35 @@ router.post('/analyze', async (req: Request, res: Response) => {
         const payload = AnalyzeRequestSchema.parse(req.body);
         const date = new Date(payload.timestamp);
 
-        // Run all 6 engines concurrently to minimize latency overhead
-        const [bazi, zmanim, adhan, jalali, tibetan, mayan] = await Promise.all([
+        // Astro-Engine HTTP Bridge
+        const fetchAstroEngine = async () => {
+            // In production, ASTRO_ENGINE_URL applies (via docker-compose).
+            // Fallback to localhost for local dev if undefined.
+            const astroEngineUrl = process.env.ASTRO_ENGINE_URL || 'http://localhost:8000';
+            const response = await fetch(`${astroEngineUrl}/api/v1/astro/calculate`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    latitude: payload.latitude,
+                    longitude: payload.longitude,
+                    timestamp: payload.timestamp
+                })
+            });
+            if (!response.ok) {
+                throw new Error(`Astro-Engine returned ${response.status}`);
+            }
+            return response.json();
+        };
+
+        // Run all 6 TS engines and the Python bridge concurrently
+        const [bazi, zmanim, adhan, jalali, tibetan, mayan, astrologyRes] = await Promise.all([
             Promise.resolve(BaZiEngine.calculate(date, { lat: payload.latitude, lon: payload.longitude })),
             Promise.resolve(ZmanimEngine.calculate(date, payload.latitude, payload.longitude)),
             Promise.resolve(AdhanEngine.calculate(date, payload.latitude, payload.longitude)),
             Promise.resolve(JalaliEngine.calculate(date)),
             Promise.resolve(TibetanEngine.calculate(date)),
-            Promise.resolve(MayanEngine.calculate(date))
+            Promise.resolve(MayanEngine.calculate(date)),
+            fetchAstroEngine().catch((err) => ({ error: err.message }))
         ]);
 
         const aggregatedResponse = {
@@ -41,7 +62,8 @@ router.post('/analyze', async (req: Request, res: Response) => {
                 adhan,
                 jalali,
                 tibetan,
-                mayan
+                mayan,
+                astrology: astrologyRes.data || astrologyRes.error
             }
         };
 
@@ -50,7 +72,7 @@ router.post('/analyze', async (req: Request, res: Response) => {
         if (err instanceof z.ZodError) {
             res.status(400).json({ error: 'Validation Failed', details: err.errors });
         } else {
-            res.status(500).json({ error: 'Internal Server Error' });
+            res.status(500).json({ error: 'Internal Server Error', details: err.message });
         }
     }
 });

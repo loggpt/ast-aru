@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  api-gateway:
+    build:
+      context: .
+      dockerfile: apps/api-gateway/Dockerfile
+    ports:
+      - "3000:3000"
+    networks:
+      - sovereign-net
+    depends_on:
+      - astro-engine
+    environment:
+      - NODE_ENV=production
+      - ASTRO_ENGINE_URL=http://astro-engine:8000
+
+  astro-engine:
+    build:
+      context: ./apps/astro-engine
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    networks:
+      - sovereign-net
+    environment:
+      - PYTHONUNBUFFERED=1
+
+networks:
+  sovereign-net:
+    driver: bridge

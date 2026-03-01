@@ -73,6 +73,26 @@ This endpoint acts as a multiplexer, routing the input Date and Location paramet
       "tzolkin": "Yellow Sun",
       "haab": "10 Mac",
       "galacticTone": 6
+    },
+    "astrology": {
+      "status": "success",
+      "ephemeris": {
+        "sun_degree": 315.42,
+        "moon_degree": 45.12,
+        "ascendant_degree": 180.5,
+        "mahadasha": "Mars"
+      },
+      "vedic": {
+        "charts": {
+          "rasi_d1": [{ "planet": "Sun", "sign": "Aquarius", "degree": "315.42" }],
+          "navamsa_d9": [{ "planet": "Sun", "sign": "Gemini" }],
+          "dasamsa_d10": [{ "planet": "Sun", "sign": "Libra" }]
+        },
+        "dasha": {
+          "current_mahadasha": "Mars",
+          "current_antardasha": "Jupiter"
+        }
+      }
     }
   }
 }
