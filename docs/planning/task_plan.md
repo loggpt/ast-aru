@@ -1,10 +1,9 @@
 # Sovereign Architect OS: Task Plan
 
 ## Immediate Next Steps
-1. **Scaffold API Gateway (`apps/api-gateway`)**: Set up a fast Node.js/Express (or Hono/Fastify) server.
-2. **Integrate Wrappers into API Gateway**: Expose the unified `POST /api/v1/timing/analyze` endpoint.
-3. **Python LangGraph Integration**: Establish the bridge where the Python LangGraph orchestrator can query the Node API for astrological timing data.
+1. **Python LangGraph Integration**: Establish the bridge where the Python LangGraph orchestrator can query the Node API for astrological timing data.
+2. **Implement Python-based Vedic (Jyotish) engines** in the `astrology-engine` session.
 
 ## Future Milestones
-- Implement Python-based Vedic (Jyotish) engines in the `astrology-engine` session.
+- Wire up the RAG (Retrieval-Augmented Generation) layer with DeepSeek to interpret the unified timing data.
 - Wire up the RAG (Retrieval-Augmented Generation) layer with DeepSeek to interpret the unified timing data.

@@ -7,7 +7,7 @@
 - [x] **Persian Jalali (Seasons / Nowruz)**
 - [x] **Tibetan Mewa (Rabjung Cycle)**
 - [x] **Mayan Dreamspell / Tzolkin**
+- [x] **API Gateway Integration**
 
 ## Pending
-- [ ] **API Gateway Integration**
 - [ ] **Python LangGraph Orchestrator bridging**
