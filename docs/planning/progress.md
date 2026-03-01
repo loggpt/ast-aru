@@ -9,6 +9,7 @@
 - [x] **Mayan Dreamspell / Tzolkin**
 - [x] **API Gateway Integration**
 - [x] **Started Python Astro-Engine**
+- [x] **Implement Thread-Pooled Ephemeris**
 
 ## Pending
 - [ ] **Python LangGraph Orchestrator bridging**

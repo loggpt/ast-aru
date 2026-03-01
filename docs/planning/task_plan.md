@@ -1,8 +1,8 @@
 # Sovereign Architect OS: Task Plan
 
-## Immediate Next Steps
-1. **Python LangGraph Integration**: Establish the bridge where the Python LangGraph orchestrator can query the Node API for astrological timing data.
-2. **Implement Python-based Vedic (Jyotish) engines** (PyJHora/Vedic integration) in the `astro-engine` session.
+1. **PyJHora (Jagannatha Hora) Vedic Integration**: Embed the heavy Jyotish rules into the `astro-engine`.
+2. **Docker Compose Unification**: Network the Node.js API Gateway and Python Astro-Engine together.
+3. **LangGraph Orchestrator**: Build the final AI semantic interpretation layer.
 
 ## Future Milestones
 - Wire up the RAG (Retrieval-Augmented Generation) layer with DeepSeek to interpret the unified timing data.
