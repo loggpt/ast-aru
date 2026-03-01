@@ -14,4 +14,4 @@
 - [x] **Docker Compose Unification**
 
 ## Pending
-- [ ] **Python LangGraph Orchestrator bridging**
+- [/] **Python LangGraph Orchestrator bridging**
