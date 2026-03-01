@@ -6,8 +6,8 @@
 - [x] **Islamic Adhan (Prayer Timing)**
 - [x] **Persian Jalali (Seasons / Nowruz)**
 - [x] **Tibetan Mewa (Rabjung Cycle)**
+- [x] **Mayan Dreamspell / Tzolkin**
 
 ## Pending
-- [ ] **Mayan Dreamspell / Tzolkin**
 - [ ] **API Gateway Integration**
 - [ ] **Python LangGraph Orchestrator bridging**
